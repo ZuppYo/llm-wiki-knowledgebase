@@ -32,6 +32,9 @@ TEXT_EXTENSIONS = {
     ".md", ".py", ".sh", ".json", ".jsonl", ".yaml", ".yml", ".txt", ".gitignore",
 }
 
+# Docs that mention .obsidian ignore rules (not committed plugin state)
+SKIP_OBSIDIAN_PATTERN_IN = {".gitignore", "requirement.md", "Schema/command-reference.md"}
+
 
 def tracked_files() -> list[Path]:
     try:
@@ -64,7 +67,7 @@ def main() -> int:
             continue
         rel = path.relative_to(ROOT)
         for rx, label in PATTERNS:
-            if path.name == ".gitignore" and rx in obsidian_path_patterns:
+            if path.name in SKIP_OBSIDIAN_PATTERN_IN and rx in obsidian_path_patterns:
                 continue
             if rx.search(text):
                 errors.append(f"{rel}: matched {label}")

@@ -20,6 +20,13 @@
         "a": 1,
         "rgb": 11602621
       }
+    },
+    {
+      "query": "path:Raw/Sources  ",
+      "color": {
+        "a": 1,
+        "rgb": 11657298
+      }
     }
   ],
   "collapse-display": true,
@@ -32,6 +39,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.9999999999999984,
+  "scale": 0.7132754626224407,
   "close": false
 }

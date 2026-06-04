@@ -34,7 +34,7 @@ status: seed
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 sources:
-  - "Raw/Sources/example.md"
+  - "[[example-source-title]]"
 source_count: 1
 aliases: []
 ---
@@ -43,7 +43,7 @@ aliases: []
 | Field | Rule |
 |-------|------|
 | `tags` | Single allowed tag: `topic`, `concept`, `entity`, `project`, `log` |
-| `sources` | Paths to files under `Raw/Sources/` |
+| `sources` | Obsidian wikilinks to Raw sources (e.g. `[[LangChain 101]]` by title or filename stem). Vault paths under `Raw/Sources/` also validate in `wiki_tool.py lint`. |
 | `source_count` | Must equal number of entries in `sources` |
 | `topics` | Optional list of related topic slugs or titles |
 | `status` | e.g. `seed`, `stable`, `deprecated` |

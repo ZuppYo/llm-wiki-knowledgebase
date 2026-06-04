@@ -12,4 +12,4 @@ aliases: []
 
 # Topic title
 
-Overview of the topic area. Link evidence in `sources`.
+Overview of the topic area. Link evidence in `sources` (wikilink, e.g. `[[my-source]]`).

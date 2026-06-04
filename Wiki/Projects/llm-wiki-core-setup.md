@@ -7,7 +7,7 @@ status: seed
 created: 2026-06-04
 updated: 2026-06-04
 sources:
-  - "Raw/Sources/llm-wiki-starter-demo.md"
+  - "[[llm-wiki-starter-demo]]"
 source_count: 1
 aliases: []
 ---

@@ -19,7 +19,7 @@
 
 - Slug matches filename without extension.
 - `aliases` in frontmatter for alternate link targets.
-- Link Raw sources with vault-relative paths: `Raw/Sources/<file>.md`
+- Link Raw sources with Obsidian wikilinks in `sources`: `[[Note Title]]` (match `Title` or filename stem in `Raw/Sources/`)
 
 ## Indexes and artifacts
 

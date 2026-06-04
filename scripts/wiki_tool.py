@@ -89,6 +89,53 @@ def norm_path(p: str) -> str:
     return p.replace("\\", "/")
 
 
+WIKILINK_RE = re.compile(r"^\[\[([^\]|#^]+)(?:#[^\]]+)?(?:\|[^\]]+)?\]\]$")
+
+
+def _wikilink_target(ref: str) -> str | None:
+    m = WIKILINK_RE.match(ref.strip())
+    return m.group(1).strip() if m else None
+
+
+def resolve_source_ref(ref: str) -> str | None:
+    """Resolve Obsidian wikilink or vault path to Raw/Sources/*.md path."""
+    ref = ref.strip().strip("'\"")
+    if not ref:
+        return None
+    if norm_path(ref).startswith("Raw/Sources/"):
+        path = ROOT / ref
+        return norm_path(ref) if path.is_file() else None
+    target = _wikilink_target(ref) or ref
+    if not RAW_SOURCES.is_dir():
+        return None
+    for path in RAW_SOURCES.glob("*.md"):
+        meta, body = read_note(path)
+        title = str(meta.get("Title") or title_from_note(path, meta, body))
+        if path.stem == target or title == target:
+            return norm_path(str(path.relative_to(ROOT)))
+    return None
+
+
+def sources_list(meta: dict) -> list[str]:
+    """Source refs as written in frontmatter (wikilinks or paths)."""
+    raw = meta.get("sources", [])
+    if isinstance(raw, list):
+        return [str(x).strip().strip("'\"") for x in raw]
+    if isinstance(raw, str) and raw:
+        return [raw.strip().strip("'\"")]
+    return []
+
+
+def sources_resolved(meta: dict) -> list[str]:
+    """Vault paths under Raw/Sources/ for lint and coverage."""
+    resolved: list[str] = []
+    for ref in sources_list(meta):
+        path = resolve_source_ref(ref)
+        if path:
+            resolved.append(path)
+    return resolved
+
+
 def wiki_note_paths() -> list[Path]:
     paths: list[Path] = []
     for sub in WIKI_SUBDIRS:
@@ -115,15 +162,6 @@ def tag_from_meta(meta: dict, path: Path) -> str | None:
         if name == folder:
             return tag
     return None
-
-
-def sources_list(meta: dict) -> list[str]:
-    raw = meta.get("sources", [])
-    if isinstance(raw, list):
-        return [norm_path(str(x)) for x in raw]
-    if isinstance(raw, str) and raw:
-        return [norm_path(raw)]
-    return []
 
 
 def title_from_note(path: Path, meta: dict, body: str) -> str:
@@ -179,7 +217,7 @@ def cmd_build(_args: argparse.Namespace) -> int:
         if not tag:
             continue
         rel = norm_path(str(path.relative_to(ROOT)))
-        sources = sources_list(meta)
+        sources = sources_resolved(meta)
         records.append(
             {
                 "path": rel,
@@ -245,19 +283,21 @@ def cmd_lint(_args: argparse.Namespace) -> int:
         expected_folder = TAG_TO_FOLDER[tag]
         if path.parent.name != expected_folder:
             errors.append(f"{rel}: tag {tag} should be in Wiki/{expected_folder}/")
-        sources = sources_list(meta)
+        refs = sources_list(meta)
+        resolved = sources_resolved(meta)
         count = meta.get("source_count")
         try:
             count_int = int(count) if count is not None else -1
         except (TypeError, ValueError):
             count_int = -1
-        if count_int != len(sources):
-            errors.append(f"{rel}: source_count ({count}) != len(sources) ({len(sources)})")
-        for src in sources:
-            src_path = ROOT / src
-            if not src_path.is_file():
-                errors.append(f"{rel}: source not found: {src}")
-            elif not norm_path(src).startswith("Raw/Sources/"):
+        if count_int != len(refs):
+            errors.append(f"{rel}: source_count ({count}) != len(sources) ({len(refs)})")
+        if len(resolved) != len(refs):
+            for ref in refs:
+                if not resolve_source_ref(ref):
+                    errors.append(f"{rel}: source not found: {ref}")
+        for src in resolved:
+            if not norm_path(src).startswith("Raw/Sources/"):
                 errors.append(f"{rel}: source must be under Raw/Sources/: {src}")
         for field in ("created", "updated"):
             if field not in meta:
@@ -315,7 +355,7 @@ def _wiki_coverage_map() -> dict[str, list[str]]:
     for path in wiki_note_paths():
         meta, _ = read_note(path)
         rel_wiki = norm_path(str(path.relative_to(ROOT)))
-        for src in sources_list(meta):
+        for src in sources_resolved(meta):
             m.setdefault(src, []).append(rel_wiki)
     return m
 

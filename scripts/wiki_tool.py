@@ -104,7 +104,13 @@ def resolve_source_ref(ref: str) -> str | None:
         return None
     if norm_path(ref).startswith("Raw/Sources/"):
         path = ROOT / ref
-        return norm_path(ref) if path.is_file() else None
+        if path.is_file():
+            return norm_path(str(path.relative_to(ROOT)))
+        if not ref.endswith(".md"):
+            with_md = ROOT / f"{ref}.md"
+            if with_md.is_file():
+                return norm_path(str(with_md.relative_to(ROOT)))
+        return None
     target = _wikilink_target(ref) or ref
     if not RAW_SOURCES.is_dir():
         return None

@@ -43,7 +43,7 @@ aliases: []
 | Field | Rule |
 |-------|------|
 | `tags` | Single allowed tag: `topic`, `concept`, `entity`, `project`, `log` |
-| `sources` | Obsidian wikilinks to Raw sources (e.g. `[[LangChain 101]]` by title or filename stem). Vault paths under `Raw/Sources/` also validate in `wiki_tool.py lint`. |
+| `sources` | Link to Raw sources for Obsidian. **Clickable in Properties:** vault path **without** `.md` (e.g. `Raw/Sources/LangChain 101`) or wikilink `[[LangChain 101]]`. Paths with `.md` validate in `wiki_tool.py` but may not click in Obsidian UI. |
 | `source_count` | Must equal number of entries in `sources` |
 | `topics` | Optional list of related topic slugs or titles |
 | `status` | e.g. `seed`, `stable`, `deprecated` |

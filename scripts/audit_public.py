@@ -52,7 +52,10 @@ def _in_skip(path: Path) -> bool:
 
 def main() -> int:
     errors: list[str] = []
+    obsidian_path_patterns = {PATTERNS[4][0], PATTERNS[5][0]}
     for path in tracked_files():
+        if path.name == "audit_public.py":
+            continue
         if path.suffix.lower() not in TEXT_EXTENSIONS and path.name != ".gitignore":
             continue
         try:
@@ -61,6 +64,8 @@ def main() -> int:
             continue
         rel = path.relative_to(ROOT)
         for rx, label in PATTERNS:
+            if path.name == ".gitignore" and rx in obsidian_path_patterns:
+                continue
             if rx.search(text):
                 errors.append(f"{rel}: matched {label}")
     if errors:

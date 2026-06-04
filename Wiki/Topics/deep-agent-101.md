@@ -2,6 +2,7 @@
 tags:
   - topic
 topics:
+  - agent-harness-101
   - langchain-101
   - langgraph-101
 status: seed
@@ -20,4 +21,4 @@ Follow-up in the mikelopster series after [LangChain 101](langchain-101.md) and 
 
 **Agenda from source:** what Deep Agent is vs LangChain/LangGraph; harness capabilities; `create_deep_agent`; four demos (basic tools + file backend, AGENTS.md/skills/memory, MCP browser automation, Chroma RAG); when to choose Deep Agent vs plain LangChain.
 
-**Prerequisites (per source):** comfort with LangChain `create_agent` and LangGraph Studio from prior episodes.
+**Prerequisites (per source):** [Agent Harness 101](agent-harness-101.md) for harness concepts; comfort with LangChain `create_agent` and LangGraph Studio from prior episodes.

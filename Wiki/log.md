@@ -8,4 +8,7 @@ New source LangGraph 101.md: 1 topic, 3 concepts, 1 log; linked to langchain-101
 ## Ingest (2026-06-04)
 
 Deep Agent.md: topic deep-agent-101, 4 concepts, ingest log
+## Ingest (2026-06-04)
+
+Agent Harness.md: topic + 6 concepts, linked deep-agent-101
 

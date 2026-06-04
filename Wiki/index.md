@@ -2,15 +2,22 @@
 
 Generated: 2026-06-04
 
-## Topics (4)
+## Topics (5)
 
+- [Agent Harness 101](Topics/agent-harness-101.md)
 - [Deep Agent 101](Topics/deep-agent-101.md)
 - [LangChain 101](Topics/langchain-101.md)
 - [LangGraph 101](Topics/langgraph-101.md)
 - [LLM Wiki Overview](Topics/llm-wiki-overview.md)
 
-## Concepts (10)
+## Concepts (16)
 
+- [Agent Harness Components](Concepts/agent-harness-components.md)
+- [Agent Harness Definition](Concepts/agent-harness-definition.md)
+- [Agent Harness Evolution](Concepts/agent-harness-evolution.md)
+- [Agent Harness Implementation Levels](Concepts/agent-harness-implementation-levels.md)
+- [Agent Harness Product Patterns (Codex & Claude Code)](Concepts/agent-harness-product-patterns.md)
+- [Agent Harness vs MCP and Skills](Concepts/agent-harness-vs-mcp-skills.md)
 - [Deep Agent create_deep_agent API](Concepts/deep-agent-create-api.md)
 - [Deep Agent Framework](Concepts/deep-agent-framework.md)
 - [Deep Agent Harness Capabilities](Concepts/deep-agent-harness-capabilities.md)
@@ -26,8 +33,9 @@ Generated: 2026-06-04
 
 - [LLM Wiki Core Setup](Projects/llm-wiki-core-setup.md)
 
-## Logs (4)
+## Logs (5)
 
+- [Agent Harness 101 Ingest](Logs/agent-harness-101-ingest.md)
 - [Deep Agent 101 Ingest](Logs/deep-agent-101-ingest.md)
 - [LangChain 101 Ingest](Logs/langchain-101-ingest.md)
 - [LangGraph 101 Ingest](Logs/langgraph-101-ingest.md)

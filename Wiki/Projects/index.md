@@ -2,4 +2,4 @@
 
 Generated: 2026-06-04
 
-- [[Wiki/Projects/llm-wiki-core-setup.md|LLM Wiki Core Setup]]
+- [LLM Wiki Core Setup](llm-wiki-core-setup.md)

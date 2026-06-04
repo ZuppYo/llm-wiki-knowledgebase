@@ -19,8 +19,8 @@
 
 - Slug matches filename without extension.
 - `aliases` in frontmatter for alternate link targets.
-- Link Raw sources in frontmatter `sources` with quoted wikilinks: `- "[[LangGraph 101]]"` (Obsidian Links property; see `.cursor/skills/obsidian-markdown/references/PROPERTIES.md`)
-- In note body, use wikilinks or `[[path/note]]` as usual; `wiki_tool.py` still resolves `sources` to `Raw/Sources/*.md` for catalog/lint
+- Link Raw sources in frontmatter `sources` with quoted wikilinks: `- "[[LangGraph 101]]"` (Obsidian Links property; see [PROPERTIES.md](../.cursor/skills/obsidian-markdown/references/PROPERTIES.md))
+- In note body, use standard Markdown links: `[Label](relative/path.md)` (see [VAULT-LINKS.md](../.cursor/skills/obsidian-markdown/references/VAULT-LINKS.md)); `wiki_tool.py` still resolves frontmatter `sources` wikilinks for catalog/lint
 
 ## Indexes and artifacts
 

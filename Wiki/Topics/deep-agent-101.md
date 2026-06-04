@@ -16,7 +16,7 @@ aliases:
 
 # Deep Agent 101
 
-Follow-up in the mikelopster series after [[langchain-101]] and [[langgraph-101]]: **Deep Agents** as an **agent harness** framework on **LangChain Core** and **LangGraph runtime**—higher-level than hand-rolling graphs, with built-in planning, filesystem, sub-agents, memory, skills, and MCP.
+Follow-up in the mikelopster series after [LangChain 101](langchain-101.md) and [LangGraph 101](langgraph-101.md): **Deep Agents** as an **agent harness** framework on **LangChain Core** and **LangGraph runtime**—higher-level than hand-rolling graphs, with built-in planning, filesystem, sub-agents, memory, skills, and MCP.
 
 **Agenda from source:** what Deep Agent is vs LangChain/LangGraph; harness capabilities; `create_deep_agent`; four demos (basic tools + file backend, AGENTS.md/skills/memory, MCP browser automation, Chroma RAG); when to choose Deep Agent vs plain LangChain.
 

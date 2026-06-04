@@ -10,6 +10,7 @@ Run `python scripts/wiki_tool.py lint` and `source-lint` before every meaningful
 - [ ] `source_count` equals length of `sources` list
 - [ ] Every path in `sources` exists under `Raw/Sources/`
 - [ ] `updated` and `created` are present (YYYY-MM-DD)
+- [ ] Note body has no `[[wikilinks]]` (use `[Label](relative/path.md)` per `.agents/skills/llm-wiki-LINKS.md`)
 
 ## Raw sources (`source-lint`)
 

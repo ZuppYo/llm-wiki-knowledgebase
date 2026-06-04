@@ -13,4 +13,4 @@ aliases: []
 
 # LLM Wiki Overview
 
-An LLM Wiki is a two-layer knowledge system: **Raw** holds captured source material; **Wiki** holds concise, reusable compiled notes. Agents and humans should search the compiled Wiki before reading broad Raw context.
+An LLM Wiki is a two-layer knowledge system: **Raw** holds captured source material; **Wiki** holds concise, reusable compiled notes. See [Raw vs Wiki layers](../Concepts/raw-vs-wiki-layers.md). Agents and humans should search the compiled [Wiki index](../index.md) before reading broad Raw context.

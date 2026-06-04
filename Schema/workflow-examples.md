@@ -10,7 +10,7 @@
    ```
 
 3. Open only the most relevant `Wiki/` notes.
-4. Create or update focused notes in the correct `Wiki/` subfolder.
+4. Create or update focused notes in the correct `Wiki/` subfolder. Use Markdown links in body and wikilinks in `sources` (see `.agents/skills/llm-wiki-LINKS.md`).
 5. Set `sources` and `source_count` on each compiled note.
 6. Set Raw source `Processed: true` when coverage is complete.
 7. Run:

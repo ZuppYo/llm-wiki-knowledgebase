@@ -5,7 +5,7 @@ description: Rebuilds Wiki catalog and indexes, updates source manifest, and kee
 
 # LLM Wiki Maintain
 
-Read [AGENTS.md](../../AGENTS.md) and [Schema/command-reference.md](../../Schema/command-reference.md).
+Read [AGENTS.md](../../AGENTS.md), [llm-wiki-LINKS.md](../llm-wiki-LINKS.md), and [Schema/command-reference.md](../../Schema/command-reference.md).
 
 ## Rebuild artifacts
 
@@ -15,6 +15,8 @@ python scripts/wiki_tool.py build
 
 Produces `Wiki/catalog.jsonl`, `Wiki/index.md`, and per-folder `index.md` files.
 
+**Indexes:** `build` emits **Markdown links** (`[Title](Topics/foo.md)`), not wikilinks — so index pages stay clickable in Cursor and Obsidian.
+
 ## Source manifest
 
 ```bash
@@ -23,6 +25,12 @@ python scripts/wiki_tool.py source-scan --update --accept-covered
 python scripts/wiki_tool.py source-delta
 python scripts/wiki_tool.py source-coverage
 ```
+
+## Migrating old body wikilinks
+
+1. Replace `[[slug]]` with `[Title](../Folder/slug.md)` using paths from [llm-wiki-LINKS.md](../llm-wiki-LINKS.md).
+2. Keep frontmatter `sources` as `"[[Raw Title]]"`.
+3. Run `build` and `lint`.
 
 ## Hooks
 

@@ -22,4 +22,6 @@ aliases: []
 | **Workflow** | Linear/tool loops; limited condition design in-framework | **State + nodes + edges** like a flowchart |
 | **Durability** | Memory concepts exist | **Durable execution**: resume/retry from checkpoints after failures |
 
+Topic notes: [LangChain 101](../Topics/langchain-101.md), [LangGraph 101](../Topics/langgraph-101.md).
+
 **Rule of thumb (per source):** stay on LangChain if one agent is enough; adopt LangGraph when you need explicit conditions, multiple sources/steps, or ordered deterministic pipelines. LangGraph is the runtime LangChain agents can run on in the v1 ecosystem.

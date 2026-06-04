@@ -90,6 +90,7 @@ def norm_path(p: str) -> str:
 
 
 WIKILINK_RE = re.compile(r"^\[\[([^\]|#^]+)(?:#[^\]]+)?(?:\|[^\]]+)?\]\]$")
+BODY_WIKILINK_RE = re.compile(r"\[\[[^\]]+\]\]")
 
 
 def _wikilink_target(ref: str) -> str | None:
@@ -246,6 +247,13 @@ def cmd_build(_args: argparse.Namespace) -> int:
     return 0
 
 
+def _index_list_line(record: dict, index_parent: Path) -> str:
+    """Markdown list item linking to a note relative to index_parent (clickable in Cursor/Obsidian)."""
+    note = ROOT / norm_path(record["path"])
+    rel = norm_path(str(note.relative_to(index_parent)))
+    return f"- [{record['title']}]({rel})"
+
+
 def _write_wiki_index(records: list[dict]) -> None:
     lines = ["# Wiki Index", "", f"Generated: {date.today().isoformat()}", ""]
     by_tag: dict[str, list[dict]] = {}
@@ -258,7 +266,7 @@ def _write_wiki_index(records: list[dict]) -> None:
         lines.append(f"## {tag.title()}s ({len(items)})")
         lines.append("")
         for r in items:
-            lines.append(f"- [[{r['path']}|{r['title']}]]")
+            lines.append(_index_list_line(r, WIKI))
         lines.append("")
     WIKI.mkdir(parents=True, exist_ok=True)
     (WIKI / "index.md").write_text("\n".join(lines), encoding="utf-8")
@@ -267,9 +275,10 @@ def _write_wiki_index(records: list[dict]) -> None:
 def _write_folder_index(sub: str, records: list[dict]) -> None:
     folder_tag = {v: k for k, v in TAG_TO_FOLDER.items()}[sub]
     items = [r for r in records if r["tag"] == folder_tag]
+    folder = WIKI / sub
     lines = [f"# {sub} Index", "", f"Generated: {date.today().isoformat()}", ""]
     for r in items:
-        lines.append(f"- [[{r['path']}|{r['title']}]]")
+        lines.append(_index_list_line(r, folder))
     if not items:
         lines.append("_No notes yet._")
     path = WIKI / sub / "index.md"
@@ -280,8 +289,13 @@ def _write_folder_index(sub: str, records: list[dict]) -> None:
 def cmd_lint(_args: argparse.Namespace) -> int:
     errors: list[str] = []
     for path in wiki_note_paths():
-        meta, _ = read_note(path)
+        meta, body = read_note(path)
         rel = norm_path(str(path.relative_to(ROOT)))
+        for wikilink in BODY_WIKILINK_RE.findall(body):
+            errors.append(
+                f"{rel}: body must use Markdown links, not wikilink {wikilink!r} "
+                "(see .agents/skills/llm-wiki-LINKS.md)"
+            )
         tag = tag_from_meta(meta, path)
         if tag not in ALLOWED_TAGS:
             errors.append(f"{rel}: missing or invalid tag in {ALLOWED_TAGS}")

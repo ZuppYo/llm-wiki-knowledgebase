@@ -11,12 +11,14 @@ Create and edit valid Obsidian Flavored Markdown. Obsidian extends CommonMark an
 
 1. **Add frontmatter** with properties (title, tags, aliases) at the top of the file. See [PROPERTIES.md](references/PROPERTIES.md) for all property types.
 2. **Write content** using standard Markdown for structure, plus Obsidian-specific syntax below.
-3. **Link related notes** using wikilinks (`[[Note]]`) for internal vault connections, or standard Markdown links for external URLs.
+3. **Link related notes** using the rules in [VAULT-LINKS.md](references/VAULT-LINKS.md): **Markdown links** `[Label](relative/path.md)` in note body (clickable everywhere); **quoted wikilinks** only in frontmatter `sources` for Obsidian Properties.
 4. **Embed content** from other notes, images, or PDFs using the `![[embed]]` syntax. See [EMBEDS.md](references/EMBEDS.md) for all embed types.
 5. **Add callouts** for highlighted information using `> [!type]` syntax. See [CALLOUTS.md](references/CALLOUTS.md) for all callout types.
 6. **Verify** the note renders correctly in Obsidian's reading view.
 
-> When choosing between wikilinks and Markdown links: use `[[wikilinks]]` for notes within the vault (Obsidian tracks renames automatically) and `[text](url)` for external URLs only.
+> **LLM Wiki vault:** see [VAULT-LINKS.md](references/VAULT-LINKS.md). Body = `[Label](path.md)`; frontmatter `sources` = `"[[Raw Title]]"`. Do not put `[[wikilinks]]` in Wiki body prose.
+
+> **General Obsidian:** wikilinks work in Obsidian but often **do not click** in VS Code/Cursor. Prefer `[Display](relative/note.md)` in body text when editors must be clickable; use wikilinks when Obsidian-only workflow is explicit.
 
 ## Internal Links (Wikilinks)
 
@@ -189,6 +191,7 @@ Reviewed in [[Meeting Notes 2024-01-10#Decisions]].
 
 ## References
 
+- [VAULT-LINKS.md](references/VAULT-LINKS.md) — LLM Wiki dual link rules (body vs frontmatter)
 - [Obsidian Flavored Markdown](https://help.obsidian.md/obsidian-flavored-markdown)
 - [Internal links](https://help.obsidian.md/links)
 - [Embed files](https://help.obsidian.md/embeds)

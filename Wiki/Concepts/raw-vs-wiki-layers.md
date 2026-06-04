@@ -14,4 +14,4 @@ aliases: []
 
 # Raw vs Wiki Layers
 
-**Raw sources** preserve original context from captures (articles, notes, transcripts). **Wiki notes** distill useful claims into short, linked knowledge. Compiled notes must link back to Raw sources so claims stay traceable.
+**Raw sources** preserve original context from captures (articles, notes, transcripts). **Wiki notes** distill useful claims into short, linked knowledge. Compiled notes must link back to Raw sources (frontmatter wikilinks) so claims stay traceable. Overview: [LLM Wiki overview](../Topics/llm-wiki-overview.md).

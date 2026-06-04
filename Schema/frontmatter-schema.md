@@ -44,6 +44,7 @@ aliases: []
 |-------|------|
 | `tags` | Single allowed tag: `topic`, `concept`, `entity`, `project`, `log` |
 | `sources` | Obsidian **Links** property: quoted wikilinks only, e.g. `- "[[LangGraph 101]]"` (match Raw `Title` or file stem). Plain paths like `Raw/Sources/...` do not click in Properties. `wiki_tool.py` resolves wikilinks for lint/catalog. |
+| Body links | Standard Markdown only: `[Display](relative/path.md)`. See `.cursor/skills/obsidian-markdown/references/VAULT-LINKS.md`. No `[[wikilinks]]` in Wiki body. |
 | `source_count` | Must equal number of entries in `sources` |
 | `topics` | Optional list of related topic slugs or titles |
 | `status` | e.g. `seed`, `stable`, `deprecated` |

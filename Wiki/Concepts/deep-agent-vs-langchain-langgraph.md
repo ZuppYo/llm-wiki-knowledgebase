@@ -16,7 +16,7 @@ aliases: []
 
 # Deep Agent vs LangChain and LangGraph
 
-**LangChain** supplies base components (models, tools, prompts). **LangGraph** supplies low-level **runtime** control (state, checkpoints, HITL). **Deep Agent** sits on top and **uses both**, adding harness-level features you would otherwise implement yourself.
+**LangChain** supplies base components (models, tools, prompts). **LangGraph** supplies low-level **runtime** control (state, checkpoints, HITL). **Deep Agent** sits on top and **uses both**, adding harness-level features you would otherwise implement yourself. Series context: [LangChain 101](../Topics/langchain-101.md), [LangGraph 101](../Topics/langgraph-101.md), [Deep Agent 101](../Topics/deep-agent-101.md).
 
 **Add-ons Deep Agent ships with (per source):**
 

@@ -12,4 +12,4 @@ aliases: []
 
 # Project name
 
-Goals, scope, and status. Link evidence in `sources`.
+Goals, scope, and status. Frontmatter `sources`: Raw wikilink. Body links: `[Topic](../Topics/slug.md)` per `llm-wiki-LINKS.md`.

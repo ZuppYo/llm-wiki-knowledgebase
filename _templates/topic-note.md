@@ -12,4 +12,4 @@ aliases: []
 
 # Topic title
 
-Overview of the topic area. Link evidence in `sources` (wikilink, e.g. `[[my-source]]`).
+Overview of the topic area. Frontmatter `sources`: quoted wikilink to Raw (e.g. `"[[my-source]]"`). Body cross-links: `[Other topic](other-topic.md)` per `.cursor/skills/obsidian-markdown/references/VAULT-LINKS.md`.

@@ -12,4 +12,4 @@ aliases: []
 
 # Entity name
 
-Who or what this entity is. Link evidence in `sources`.
+Who or what this entity is. Frontmatter `sources`: Raw wikilink. Body links per `llm-wiki-LINKS.md`.

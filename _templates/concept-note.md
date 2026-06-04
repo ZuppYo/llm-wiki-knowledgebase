@@ -12,4 +12,4 @@ aliases: []
 
 # Concept title
 
-Concise compiled knowledge. Link evidence in `sources`.
+Concise compiled knowledge. Frontmatter `sources`: quoted Raw wikilink. Body Wiki links: `[Topic](../Topics/slug.md)` — see VAULT-LINKS.md in obsidian-markdown skill.

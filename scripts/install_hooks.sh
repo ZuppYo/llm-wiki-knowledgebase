@@ -5,3 +5,4 @@ cd "$(dirname "$0")/.."
 git config core.hooksPath .githooks
 echo "Installed hooks: core.hooksPath=.githooks"
 echo "Pre-commit runs: wiki_tool.py build, lint, source-lint"
+echo "If commit fails with 'Python was not found', set: git config env.PYTHON C:/Python314/python.exe"

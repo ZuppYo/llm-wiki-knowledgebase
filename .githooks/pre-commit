@@ -2,8 +2,7 @@
 # LLM Wiki pre-commit gate
 set -e
 cd "$(git rev-parse --show-toplevel)"
-PY=python3
-command -v python3 >/dev/null 2>&1 || PY=python
-"$PY" scripts/wiki_tool.py build
-"$PY" scripts/wiki_tool.py lint
-"$PY" scripts/wiki_tool.py source-lint
+RUNNER="sh scripts/wiki_python.sh"
+$RUNNER scripts/wiki_tool.py build
+$RUNNER scripts/wiki_tool.py lint
+$RUNNER scripts/wiki_tool.py source-lint

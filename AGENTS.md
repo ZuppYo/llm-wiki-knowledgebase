@@ -16,7 +16,7 @@ Binary or large attachments go in `Raw/Files/` (gitignored by default).
 
 1. **Treat `Raw/Sources/` as source material only.** Do not treat Raw notes as finished wiki answers.
 2. **Write reusable knowledge only under `Wiki/`.** Use `Wiki/Topics/`, `Concepts/`, `Entities/`, `Projects/`, or `Logs/` as appropriate.
-3. **Link every compiled note to one or more Raw sources** in frontmatter `sources`, and keep `source_count` equal to `len(sources)`.
+3. **Link every compiled note to one or more Raw sources** in frontmatter `sources` as quoted wikilinks (e.g. `"[[LangGraph 101]]"`) per Obsidian Links properties — not plain `Raw/Sources/...` paths. Keep `source_count` equal to `len(sources)`.
 4. **Search `Wiki/catalog.jsonl` before opening broad Raw context.** Use `python scripts/wiki_tool.py search-catalog --query "..."` or read `Wiki/index.md`.
 5. **Run maintenance before commits:** `doctor`, `build`, `lint`, `source-lint`, and `scripts/audit_public.py`. After ingestion, also run `source-scan --update --accept-covered`.
 6. **Do not invent citations** or add claims without support from linked Raw sources.

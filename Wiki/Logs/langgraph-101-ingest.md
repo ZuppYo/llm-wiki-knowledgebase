@@ -7,7 +7,7 @@ status: seed
 created: 2026-06-04
 updated: 2026-06-04
 sources:
-  - Raw/Sources/LangGraph 101
+  - "[[LangGraph 101]]"
 source_count: 1
 aliases: []
 ---

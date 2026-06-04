@@ -34,7 +34,7 @@ status: seed
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 sources:
-  - "[[example-source-title]]"
+  - "[[Example Source Title]]"
 source_count: 1
 aliases: []
 ---
@@ -43,7 +43,7 @@ aliases: []
 | Field | Rule |
 |-------|------|
 | `tags` | Single allowed tag: `topic`, `concept`, `entity`, `project`, `log` |
-| `sources` | Link to Raw sources for Obsidian. **Clickable in Properties:** vault path **without** `.md` (e.g. `Raw/Sources/LangChain 101`) or wikilink `[[LangChain 101]]`. Paths with `.md` validate in `wiki_tool.py` but may not click in Obsidian UI. |
+| `sources` | Obsidian **Links** property: quoted wikilinks only, e.g. `- "[[LangGraph 101]]"` (match Raw `Title` or file stem). Plain paths like `Raw/Sources/...` do not click in Properties. `wiki_tool.py` resolves wikilinks for lint/catalog. |
 | `source_count` | Must equal number of entries in `sources` |
 | `topics` | Optional list of related topic slugs or titles |
 | `status` | e.g. `seed`, `stable`, `deprecated` |

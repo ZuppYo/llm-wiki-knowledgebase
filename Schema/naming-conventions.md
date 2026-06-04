@@ -19,10 +19,8 @@
 
 - Slug matches filename without extension.
 - `aliases` in frontmatter for alternate link targets.
-- Link Raw sources in `sources` using either:
-  - Vault path without extension: `Raw/Sources/LangChain 101` (Obsidian Properties link, matches screenshot style)
-  - Wikilink: `[[LangChain 101]]` (by `Title` or filename stem)
-  - Avoid `Raw/Sources/file.md` in frontmatter if you need clickable Properties links in Obsidian
+- Link Raw sources in frontmatter `sources` with quoted wikilinks: `- "[[LangGraph 101]]"` (Obsidian Links property; see `.cursor/skills/obsidian-markdown/references/PROPERTIES.md`)
+- In note body, use wikilinks or `[[path/note]]` as usual; `wiki_tool.py` still resolves `sources` to `Raw/Sources/*.md` for catalog/lint
 
 ## Indexes and artifacts
 

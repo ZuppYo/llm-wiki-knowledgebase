@@ -22,10 +22,10 @@
       }
     },
     {
-      "query": "path:Raw/Sources  ",
+      "query": "path:Raw/Sources/Knowledge/Programing  ",
       "color": {
         "a": 1,
-        "rgb": 11657298
+        "rgb": 551820
       }
     }
   ],
@@ -39,6 +39,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1.9655560456566679,
+  "scale": 0.3628873693012102,
   "close": false
 }

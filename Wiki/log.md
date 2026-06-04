@@ -14,4 +14,7 @@ Agent Harness.md: topic + 6 concepts, linked deep-agent-101
 ## Raw subfolder support (2026-06-04)
 
 Enabled nested Raw/Sources and Raw/Files; migrated 4 sources to Knowledge/Ai/*; all lint gates pass on branch feat/raw-subfolder-support.
+## Ingest (2026-06-04)
+
+Compiled 100 Go Mistakes source into topic go-common-mistakes-101 and 11 section concepts (#1-100).
 

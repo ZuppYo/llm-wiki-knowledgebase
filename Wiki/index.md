@@ -2,15 +2,16 @@
 
 Generated: 2026-06-04
 
-## Topics (5)
+## Topics (6)
 
 - [Agent Harness 101](Topics/agent-harness-101.md)
 - [Deep Agent 101](Topics/deep-agent-101.md)
+- [Go Common Mistakes 101](Topics/go-common-mistakes-101.md)
 - [LangChain 101](Topics/langchain-101.md)
 - [LangGraph 101](Topics/langgraph-101.md)
 - [LLM Wiki Overview](Topics/llm-wiki-overview.md)
 
-## Concepts (16)
+## Concepts (27)
 
 - [Agent Harness Components](Concepts/agent-harness-components.md)
 - [Agent Harness Definition](Concepts/agent-harness-definition.md)
@@ -22,6 +23,17 @@ Generated: 2026-06-04
 - [Deep Agent Framework](Concepts/deep-agent-framework.md)
 - [Deep Agent Harness Capabilities](Concepts/deep-agent-harness-capabilities.md)
 - [Deep Agent vs LangChain and LangGraph](Concepts/deep-agent-vs-langchain-langgraph.md)
+- [Go Mistakes: Code and Project Organization](Concepts/go-mistakes-code-organization.md)
+- [Go Mistakes: Concurrency Foundations](Concepts/go-mistakes-concurrency-foundations.md)
+- [Go Mistakes: Concurrency Practice](Concepts/go-mistakes-concurrency-practice.md)
+- [Go Mistakes: Control Structures](Concepts/go-mistakes-control-structures.md)
+- [Go Mistakes: Data Types](Concepts/go-mistakes-data-types.md)
+- [Go Mistakes: Error Management](Concepts/go-mistakes-error-management.md)
+- [Go Mistakes: Functions and Methods](Concepts/go-mistakes-functions-methods.md)
+- [Go Mistakes: Optimizations](Concepts/go-mistakes-optimizations.md)
+- [Go Mistakes: Standard Library](Concepts/go-mistakes-standard-library.md)
+- [Go Mistakes: Strings](Concepts/go-mistakes-strings.md)
+- [Go Mistakes: Testing](Concepts/go-mistakes-testing.md)
 - [LangChain Four Core Components (v1)](Concepts/langchain-four-components.md)
 - [LangChain Framework](Concepts/langchain-framework.md)
 - [LangGraph Runtime Features](Concepts/langgraph-runtime-features.md)
@@ -33,10 +45,11 @@ Generated: 2026-06-04
 
 - [LLM Wiki Core Setup](Projects/llm-wiki-core-setup.md)
 
-## Logs (5)
+## Logs (6)
 
 - [Agent Harness 101 Ingest](Logs/agent-harness-101-ingest.md)
 - [Deep Agent 101 Ingest](Logs/deep-agent-101-ingest.md)
+- [Go Common Mistakes 101 Ingest](Logs/go-common-mistakes-101-ingest.md)
 - [LangChain 101 Ingest](Logs/langchain-101-ingest.md)
 - [LangGraph 101 Ingest](Logs/langgraph-101-ingest.md)
 - [Tutorial 05 First Ingest](Logs/tutorial-05-first-ingest.md)

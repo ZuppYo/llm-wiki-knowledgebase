@@ -17,4 +17,7 @@ Enabled nested Raw/Sources and Raw/Files; migrated 4 sources to Knowledge/Ai/*; 
 ## Ingest (2026-06-04)
 
 Compiled 100 Go Mistakes source into topic go-common-mistakes-101 and 11 section concepts (#1-100).
+## Ingest (2026-06-04)
+
+Paypers Claude Code meetup: topic + 4 concepts from Thai transcript; Raw frontmatter normalized.
 

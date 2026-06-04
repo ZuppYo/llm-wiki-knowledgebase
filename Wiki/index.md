@@ -2,16 +2,17 @@
 
 Generated: 2026-06-04
 
-## Topics (6)
+## Topics (7)
 
 - [Agent Harness 101](Topics/agent-harness-101.md)
+- [Claude Code Paypers Production](Topics/claude-code-paypers-production.md)
 - [Deep Agent 101](Topics/deep-agent-101.md)
 - [Go Common Mistakes 101](Topics/go-common-mistakes-101.md)
 - [LangChain 101](Topics/langchain-101.md)
 - [LangGraph 101](Topics/langgraph-101.md)
 - [LLM Wiki Overview](Topics/llm-wiki-overview.md)
 
-## Concepts (27)
+## Concepts (31)
 
 - [Agent Harness Components](Concepts/agent-harness-components.md)
 - [Agent Harness Definition](Concepts/agent-harness-definition.md)
@@ -19,6 +20,10 @@ Generated: 2026-06-04
 - [Agent Harness Implementation Levels](Concepts/agent-harness-implementation-levels.md)
 - [Agent Harness Product Patterns (Codex & Claude Code)](Concepts/agent-harness-product-patterns.md)
 - [Agent Harness vs MCP and Skills](Concepts/agent-harness-vs-mcp-skills.md)
+- [Claude Code Context, Skills, and Routines](Concepts/claude-code-context-skills-routines.md)
+- [Claude Code Planning and Implementation Workflow](Concepts/claude-code-planning-implementation-workflow.md)
+- [Claude Code Production Mindset and Tooling](Concepts/claude-code-production-mindset.md)
+- [Claude Code Team MCP and Data Access](Concepts/claude-code-team-mcp-data-access.md)
 - [Deep Agent create_deep_agent API](Concepts/deep-agent-create-api.md)
 - [Deep Agent Framework](Concepts/deep-agent-framework.md)
 - [Deep Agent Harness Capabilities](Concepts/deep-agent-harness-capabilities.md)

@@ -98,29 +98,91 @@ def _wikilink_target(ref: str) -> str | None:
     return m.group(1).strip() if m else None
 
 
-def resolve_source_ref(ref: str) -> str | None:
-    """Resolve Obsidian wikilink or vault path to Raw/Sources/*.md path."""
+def raw_source_paths() -> list[Path]:
+    if not RAW_SOURCES.is_dir():
+        return []
+    paths = [
+        p
+        for p in RAW_SOURCES.rglob("*.md")
+        if p.is_file()
+        and not any(part.startswith(".") for part in p.relative_to(RAW_SOURCES).parts)
+    ]
+    return sorted(paths)
+
+
+_SOURCE_INDEX: dict | None = None
+
+
+def _invalidate_source_index() -> None:
+    global _SOURCE_INDEX
+    _SOURCE_INDEX = None
+
+
+def _build_source_index() -> dict:
+    global _SOURCE_INDEX
+    if _SOURCE_INDEX is not None:
+        return _SOURCE_INDEX
+    by_title: dict[str, list[str]] = {}
+    by_stem: dict[str, list[str]] = {}
+    by_rel: dict[str, str] = {}
+    for path in raw_source_paths():
+        meta, body = read_note(path)
+        rel = norm_path(str(path.relative_to(ROOT)))
+        rel_under = norm_path(str(path.relative_to(RAW_SOURCES)))
+        rel_key = rel_under[:-3] if rel_under.endswith(".md") else rel_under
+        by_rel[rel_key] = rel
+        title = str(meta.get("Title") or title_from_note(path, meta, body))
+        by_title.setdefault(title, []).append(rel)
+        by_stem.setdefault(path.stem, []).append(rel)
+    _SOURCE_INDEX = {"by_title": by_title, "by_stem": by_stem, "by_rel": by_rel}
+    return _SOURCE_INDEX
+
+
+def _normalize_source_target(target: str) -> str:
+    t = norm_path(target.strip())
+    if t.endswith(".md"):
+        t = t[:-3]
+    return t
+
+
+def resolve_source_ref_detail(ref: str) -> tuple[str | None, list[str]]:
+    """Resolve a source ref to a vault path; return ambiguous matches when not unique."""
     ref = ref.strip().strip("'\"")
     if not ref:
-        return None
+        return None, []
     if norm_path(ref).startswith("Raw/Sources/"):
         path = ROOT / ref
         if path.is_file():
-            return norm_path(str(path.relative_to(ROOT)))
+            return norm_path(str(path.relative_to(ROOT))), []
         if not ref.endswith(".md"):
             with_md = ROOT / f"{ref}.md"
             if with_md.is_file():
-                return norm_path(str(with_md.relative_to(ROOT)))
-        return None
-    target = _wikilink_target(ref) or ref
+                return norm_path(str(with_md.relative_to(ROOT))), []
+        return None, []
     if not RAW_SOURCES.is_dir():
-        return None
-    for path in RAW_SOURCES.glob("*.md"):
-        meta, body = read_note(path)
-        title = str(meta.get("Title") or title_from_note(path, meta, body))
-        if path.stem == target or title == target:
-            return norm_path(str(path.relative_to(ROOT)))
-    return None
+        return None, []
+    target = _wikilink_target(ref) or ref
+    index = _build_source_index()
+    rel_key = _normalize_source_target(target)
+    if rel_key in index["by_rel"]:
+        return index["by_rel"][rel_key], []
+    title_matches = index["by_title"].get(target, [])
+    if len(title_matches) == 1:
+        return title_matches[0], []
+    if len(title_matches) > 1:
+        return None, sorted(title_matches)
+    stem_matches = index["by_stem"].get(target, [])
+    if len(stem_matches) == 1:
+        return stem_matches[0], []
+    if len(stem_matches) > 1:
+        return None, sorted(stem_matches)
+    return None, []
+
+
+def resolve_source_ref(ref: str) -> str | None:
+    """Resolve Obsidian wikilink or vault path to Raw/Sources/**/*.md path."""
+    resolved, _ = resolve_source_ref_detail(ref)
+    return resolved
 
 
 def sources_list(meta: dict) -> list[str]:
@@ -205,7 +267,7 @@ def cmd_doctor(_args: argparse.Namespace) -> int:
         except Exception as e:
             errors.append(f"Invalid manifest: {e}")
     wiki_n = len(wiki_note_paths())
-    raw_n = len(list(RAW_SOURCES.glob("*.md"))) if RAW_SOURCES.is_dir() else 0
+    raw_n = len(raw_source_paths())
     print(f"Wiki compiled notes: {wiki_n}")
     print(f"Raw sources: {raw_n}")
     if errors:
@@ -217,6 +279,7 @@ def cmd_doctor(_args: argparse.Namespace) -> int:
 
 
 def cmd_build(_args: argparse.Namespace) -> int:
+    _invalidate_source_index()
     records: list[dict] = []
     for path in wiki_note_paths():
         meta, body = read_note(path)
@@ -287,6 +350,7 @@ def _write_folder_index(sub: str, records: list[dict]) -> None:
 
 
 def cmd_lint(_args: argparse.Namespace) -> int:
+    _invalidate_source_index()
     errors: list[str] = []
     for path in wiki_note_paths():
         meta, body = read_note(path)
@@ -314,7 +378,16 @@ def cmd_lint(_args: argparse.Namespace) -> int:
             errors.append(f"{rel}: source_count ({count}) != len(sources) ({len(refs)})")
         if len(resolved) != len(refs):
             for ref in refs:
-                if not resolve_source_ref(ref):
+                path, ambiguous = resolve_source_ref_detail(ref)
+                if path:
+                    continue
+                if ambiguous:
+                    joined = ", ".join(ambiguous)
+                    hint = _ambiguous_wikilink_hint(ref, ambiguous)
+                    errors.append(
+                        f"{rel}: ambiguous source wikilink {ref!r} matches {joined} — {hint}"
+                    )
+                else:
                     errors.append(f"{rel}: source not found: {ref}")
         for src in resolved:
             if not norm_path(src).startswith("Raw/Sources/"):
@@ -330,13 +403,37 @@ def cmd_lint(_args: argparse.Namespace) -> int:
     return 0
 
 
-def raw_source_paths() -> list[Path]:
-    if not RAW_SOURCES.is_dir():
-        return []
-    return sorted(RAW_SOURCES.glob("*.md"))
+def _ambiguous_wikilink_hint(ref: str, matches: list[str]) -> str:
+    target = _wikilink_target(ref) or ref
+    for match in matches:
+        rel_under = match.removeprefix("Raw/Sources/")
+        if rel_under.endswith(".md"):
+            rel_under = rel_under[:-3]
+        if rel_under.endswith(f"/{target}") or rel_under == target:
+            return f'use path wikilink e.g. "[[{rel_under}]]"'
+    first = matches[0].removeprefix("Raw/Sources/")
+    if first.endswith(".md"):
+        first = first[:-3]
+    return f'use path wikilink e.g. "[[{first}]]"'
+
+
+def _duplicate_source_errors(index: dict) -> list[str]:
+    errors: list[str] = []
+    for title, paths in sorted(index["by_title"].items()):
+        if len(paths) > 1:
+            joined = ", ".join(sorted(paths))
+            errors.append(f"duplicate Raw Title {title!r}: {joined}")
+    for stem, paths in sorted(index["by_stem"].items()):
+        if len(paths) > 1:
+            joined = ", ".join(sorted(paths))
+            errors.append(
+                f"duplicate Raw filename stem {stem!r}: {joined} — use path wikilinks in Wiki sources"
+            )
+    return errors
 
 
 def cmd_source_scan(args: argparse.Namespace) -> int:
+    _invalidate_source_index()
     sources = raw_source_paths()
     coverage = _wiki_coverage_map()
     rows: list[dict] = []
@@ -381,7 +478,10 @@ def _wiki_coverage_map() -> dict[str, list[str]]:
 
 
 def cmd_source_lint(_args: argparse.Namespace) -> int:
+    _invalidate_source_index()
     errors: list[str] = []
+    index = _build_source_index()
+    errors.extend(_duplicate_source_errors(index))
     coverage = _wiki_coverage_map()
     for path in raw_source_paths():
         meta, _ = read_note(path)

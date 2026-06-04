@@ -6,7 +6,7 @@ Read with [AGENTS.md](../../AGENTS.md) and `.cursor/skills/obsidian-markdown/ref
 
 | Location | Syntax | Example |
 |----------|--------|---------|
-| Frontmatter `sources` | Quoted Obsidian wikilink | `- "[[LangGraph 101]]"` |
+| Frontmatter `sources` | Quoted Obsidian wikilink | `- "[[LangGraph 101]]"` or nested `- "[[Knowledge/Ai/LLMWiki/llm-wiki-starter-demo]]"` |
 | Note **body**, generated **indexes** | Standard Markdown | `[LangGraph 101](../Topics/langgraph-101.md)` |
 
 **Why:** `[[wikilinks]]` in body often do not click in Cursor/VS Code. `[text](path.md)` works in Cursor and Obsidian.
@@ -19,6 +19,12 @@ Read with [AGENTS.md](../../AGENTS.md) and `.cursor/skills/obsidian-markdown/ref
 | `Wiki/Concepts/` | `[C](c.md)` | `[T](../Topics/t.md)` |
 | `Wiki/Logs/` | `[L](l.md)` | `[T](../Topics/t.md)` |
 | `Wiki/index.md` | — | `[T](Topics/t.md)` |
+
+## Nested Raw sources
+
+- Prefer title wikilinks when Raw `Title` is globally unique: `"[[LangGraph 101]]"`
+- When filename stems collide across subfolders, use path wikilinks relative to `Raw/Sources/`: `"[[Knowledge/Ai/AgentHarness/Agent Harness]]"`
+- `lint` fails on ambiguous wikilinks; `source-lint` fails on duplicate Titles or stems
 
 ## Do not
 

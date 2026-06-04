@@ -27,7 +27,9 @@ python scripts/wiki_tool.py source-scan --update --accept-covered
 
 ## Link checks (`lint`)
 
-- `source_count` matches `sources`; each `sources` wikilink resolves under `Raw/Sources/`
+- `source_count` matches `sources`; each `sources` wikilink resolves under `Raw/Sources/` (including nested paths)
+- **No ambiguous source wikilinks** — duplicate Raw Title or stem requires path wikilink (e.g. `"[[Knowledge/Ai/foo/bar]]"`)
+- **No duplicate Raw Title or stem** across sources (`source-lint`)
 - **No `[[wikilinks]]` in Wiki note body** — use `[Label](relative/path.md)` per [llm-wiki-LINKS.md](../llm-wiki-LINKS.md)
 - `build` regenerates `Wiki/index.md` and folder indexes as Markdown links
 

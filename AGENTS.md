@@ -6,11 +6,11 @@ This vault separates **source material** from **compiled knowledge**. Follow the
 
 | Layer | Path | Purpose |
 |-------|------|---------|
-| Raw | `Raw/Sources/` | Original captured material. Not compiled notes. |
+| Raw | `Raw/Sources/` | Original captured material. Not compiled notes. Subfolders allowed (e.g. `Raw/Sources/Knowledge/Ai/`). |
 | Wiki | `Wiki/` | Concise, reusable, linked knowledge notes. |
 | Schema | `Schema/` | Frontmatter rules, lint checklist, manifests, command reference. |
 
-Binary or large attachments go in `Raw/Files/` (gitignored by default).
+Binary or large attachments go in `Raw/Files/` (gitignored by default; subfolders allowed, e.g. `Raw/Files/<source-id>/`).
 
 ## Core rules
 

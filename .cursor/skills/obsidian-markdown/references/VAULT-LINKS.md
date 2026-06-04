@@ -9,10 +9,11 @@ Obsidian **Links** property — quoted wikilinks to Raw note titles:
 ```yaml
 sources:
   - "[[LangGraph 101]]"
-source_count: 1
+  - "[[Knowledge/Ai/LLMWiki/llm-wiki-starter-demo]]"
+source_count: 2
 ```
 
-Match Raw `Title` or filename stem. Do **not** use `Raw/Sources/...` paths here.
+Match Raw `Title` or filename stem when globally unique. For nested sources with duplicate stems, use path wikilinks relative to `Raw/Sources/`. Do **not** use `Raw/Sources/...` plain paths here.
 
 ## Note body (Wiki ↔ Wiki, indexes)
 

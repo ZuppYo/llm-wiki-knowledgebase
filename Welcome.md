@@ -1,6 +1,6 @@
 # LLM Wiki
 
-This vault is an LLM Wiki: source material lives in `Raw/Sources/`, compiled knowledge in `Wiki/`.
+This vault is an LLM Wiki: source material lives in `Raw/Sources/` (subfolders allowed), compiled knowledge in `Wiki/`. Large attachments go in `Raw/Files/` (subfolders allowed).
 
 - Agent rules: [AGENTS.md](AGENTS.md)
 - Wiki index: [Wiki/index.md](Wiki/index.md) (available after setup)

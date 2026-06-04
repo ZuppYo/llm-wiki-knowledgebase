@@ -3,6 +3,7 @@
 .obsidian/plugins/
 .obsidian/cache/
 .obsidian/logs/
-Raw/Files/*
+Raw/Files/**
 !Raw/Files/.gitkeep
+!Raw/Files/**/.gitkeep
 Drafts/

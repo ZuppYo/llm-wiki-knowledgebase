@@ -6,7 +6,7 @@
 
 Build a clean, beginner-friendly LLM Wiki in Obsidian.
 
-The finished core system should let the user put source notes in `Raw/Sources/`. The agent or LLM connection can then:
+The finished core system should let the user put source notes in `Raw/Sources/` (flat or nested subfolders). The agent or LLM connection can then:
 1. Compile those sources into concise, reusable notes in `Wiki/`.
 2. Keep claims traceable from Wiki notes back to Raw sources.
 3. Build indexes and a machine-readable catalog.
@@ -60,8 +60,9 @@ Create a safe `.gitignore` that ignores:
 .obsidian/plugins/
 .obsidian/cache/
 .obsidian/logs/
-Raw/Files/*
+Raw/Files/**
 !Raw/Files/.gitkeep
+!Raw/Files/**/.gitkeep
 Drafts/
 ```
 
@@ -122,7 +123,7 @@ Create:
 - `.agents/skills/llm-wiki-maintain/SKILL.md`
 
 `AGENTS.md` must tell agents:
-- Treat `Raw/Sources/` as source material, not as compiled notes.
+- Treat `Raw/Sources/` as source material, not as compiled notes. Subfolders under `Raw/Sources/` are allowed.
 - Write reusable knowledge only under `Wiki/`.
 - Keep every compiled note linked to one or more Raw sources.
 - Search `Wiki/catalog.jsonl` before opening broad Raw context.
@@ -239,14 +240,16 @@ Minimum source manifest contract:
 `Schema/source-manifest.jsonl` should contain one JSON object per Raw source. Each object should include:
 
 ```json
-{"path":"Raw/Sources/example.md","title":"Example","processed":true,"covered_by":["Wiki/Concepts/example.md"],"updated":"YYYY-MM-DD"}
+{"path":"Raw/Sources/Knowledge/Ai/example.md","title":"Example","processed":true,"covered_by":["Wiki/Concepts/example.md"],"updated":"YYYY-MM-DD"}
 ```
 
 Minimum lint behavior:
 
 - compiled Wiki notes must use one allowed tag: `topic`, `concept`, `entity`, `project`, or `log`
 - compiled Wiki notes must keep `source_count` equal to the number of `sources`
-- compiled Wiki note source links should point to existing files under `Raw/Sources/`
+- compiled Wiki note source links should point to existing files under `Raw/Sources/` (including nested paths)
+- `wiki_tool.py` must discover Raw sources recursively (`Raw/Sources/**/*.md`)
+- wikilink resolution: match Title or stem when unique; support path wikilinks for nested sources; lint on ambiguity
 - Raw source notes should include `Title`, `Reference`, `Created`, `Processed`, and `tags`
 - `source-lint` should fail if a source is marked processed but has no Wiki coverage
 
@@ -347,7 +350,7 @@ The core build is complete only when all of these are true:
 
 When the user adds a new source:
 
-1. Put cleaned Markdown in `Raw/Sources/`.
+1. Put cleaned Markdown in `Raw/Sources/` (optionally grouped in subfolders).
 2. Run `search-catalog` for likely related topics.
 3. Open only the most relevant compiled Wiki notes.
 4. Create or update focused notes in `Wiki/`.

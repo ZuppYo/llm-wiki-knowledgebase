@@ -2,9 +2,11 @@
 
 ## Raw sources
 
-- Path: `Raw/Sources/<slug>.md`
+- Path: `Raw/Sources/<slug>.md` or nested `Raw/Sources/<topic>/<slug>.md`
+- Subfolders are allowed for grouping (e.g. `Raw/Sources/Knowledge/Ai/AgentHarness/Agent Harness.md`)
 - Slug: lowercase, hyphen-separated, descriptive (`why-llm-wiki.md`, `llm-wiki-starter-demo.md`)
-- `Title` in frontmatter: human-readable title
+- `Title` in frontmatter: human-readable title; must be **globally unique** across all Raw sources if cited via title wikilink
+- When filename stems collide across subfolders, use path wikilinks in Wiki `sources` (e.g. `"[[Knowledge/Ai/LLMWiki/llm-wiki-starter-demo]]"`)
 - `Reference`: stable external id (URL, `owned-demo`, ISBN, etc.)
 
 ## Compiled Wiki notes

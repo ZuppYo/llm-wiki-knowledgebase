@@ -11,4 +11,7 @@ Deep Agent.md: topic deep-agent-101, 4 concepts, ingest log
 ## Ingest (2026-06-04)
 
 Agent Harness.md: topic + 6 concepts, linked deep-agent-101
+## Raw subfolder support (2026-06-04)
+
+Enabled nested Raw/Sources and Raw/Files; migrated 4 sources to Knowledge/Ai/*; all lint gates pass on branch feat/raw-subfolder-support.
 

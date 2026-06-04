@@ -2,7 +2,7 @@
 
 ## Ingest a new source
 
-1. Add cleaned Markdown to `Raw/Sources/` using `_templates/source-note.md`.
+1. Add cleaned Markdown to `Raw/Sources/` (flat or nested subfolders, e.g. `Raw/Sources/Knowledge/Ai/<slug>.md`) using `_templates/source-note.md`.
 2. Search existing knowledge:
 
    ```bash

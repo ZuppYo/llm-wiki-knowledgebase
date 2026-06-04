@@ -13,7 +13,7 @@ Read [AGENTS.md](../../AGENTS.md), [llm-wiki-LINKS.md](../llm-wiki-LINKS.md), an
 python scripts/wiki_tool.py build
 ```
 
-Produces `Wiki/catalog.jsonl`, `Wiki/index.md`, and per-folder `index.md` files.
+Produces `Wiki/catalog.jsonl`, `Wiki/index.md`, and per-folder `index.md` files. Catalog `sources` arrays store full vault paths (may include nested subpaths under `Raw/Sources/`).
 
 **Indexes:** `build` emits **Markdown links** (`[Title](Topics/foo.md)`), not wikilinks — so index pages stay clickable in Cursor and Obsidian.
 

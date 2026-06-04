@@ -1,6 +1,8 @@
 # Frontmatter Schema
 
-## Raw source notes (`Raw/Sources/*.md`)
+## Raw source notes (`Raw/Sources/**/*.md`)
+
+Sources may live at the vault root (`Raw/Sources/<slug>.md`) or in subfolders (`Raw/Sources/<topic>/<slug>.md`). `wiki_tool.py` discovers all `.md` files recursively.
 
 Required fields:
 
@@ -43,7 +45,7 @@ aliases: []
 | Field | Rule |
 |-------|------|
 | `tags` | Single allowed tag: `topic`, `concept`, `entity`, `project`, `log` |
-| `sources` | Obsidian **Links** property: quoted wikilinks only, e.g. `- "[[LangGraph 101]]"` (match Raw `Title` or file stem). Plain paths like `Raw/Sources/...` do not click in Properties. `wiki_tool.py` resolves wikilinks for lint/catalog. |
+| `sources` | Obsidian **Links** property: quoted wikilinks only, e.g. `- "[[LangGraph 101]]"` (match Raw `Title` or file stem when unique). For nested sources with duplicate stems, use path wikilinks: `- "[[Knowledge/Ai/LLMWiki/llm-wiki-starter-demo]]"`. Plain paths like `Raw/Sources/...` do not click in Properties. `wiki_tool.py` resolves wikilinks for lint/catalog. |
 | Body links | Standard Markdown only: `[Display](relative/path.md)`. See `.cursor/skills/obsidian-markdown/references/VAULT-LINKS.md`. No `[[wikilinks]]` in Wiki body. |
 | `source_count` | Must equal number of entries in `sources` |
 | `topics` | Optional list of related topic slugs or titles |
@@ -54,11 +56,11 @@ aliases: []
 One JSON object per line, produced by `wiki_tool.py build`:
 
 ```json
-{"path":"Wiki/Concepts/example.md","title":"Example","tag":"concept","topics":[],"sources":["Raw/Sources/example.md"],"updated":"YYYY-MM-DD"}
+{"path":"Wiki/Concepts/example.md","title":"Example","tag":"concept","topics":[],"sources":["Raw/Sources/Knowledge/Ai/example.md"],"updated":"YYYY-MM-DD"}
 ```
 
 ## Source manifest (`Schema/source-manifest.jsonl`)
 
 ```json
-{"path":"Raw/Sources/example.md","title":"Example","processed":true,"covered_by":["Wiki/Concepts/example.md"],"updated":"YYYY-MM-DD"}
+{"path":"Raw/Sources/Knowledge/Ai/example.md","title":"Example","processed":true,"covered_by":["Wiki/Concepts/example.md"],"updated":"YYYY-MM-DD"}
 ```

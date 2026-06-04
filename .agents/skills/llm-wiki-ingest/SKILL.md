@@ -9,7 +9,7 @@ Read [AGENTS.md](../../AGENTS.md) and [llm-wiki-LINKS.md](../llm-wiki-LINKS.md).
 
 ## Steps
 
-1. Confirm source note in `Raw/Sources/` matches [Schema/frontmatter-schema.md](../../Schema/frontmatter-schema.md).
+1. Confirm source note in `Raw/Sources/` (flat or nested) matches [Schema/frontmatter-schema.md](../../Schema/frontmatter-schema.md).
 2. `python scripts/wiki_tool.py search-catalog --query "<keywords>"`
 3. Update or create notes in the correct `Wiki/` folder using `_templates/`.
 4. **Frontmatter `sources`** — quoted Obsidian **Links** (wikilinks), not plain paths:
@@ -19,7 +19,7 @@ Read [AGENTS.md](../../AGENTS.md) and [llm-wiki-LINKS.md](../llm-wiki-LINKS.md).
      - "[[LangGraph 101]]"
    ```
 
-   Match the Raw note `Title` or filename stem. Keep `source_count` accurate.
+   Match the Raw note `Title` or filename stem when unique. For nested sources with duplicate stems, use a path wikilink (e.g. `"[[Knowledge/Ai/LLMWiki/llm-wiki-starter-demo]]"`). Keep `source_count` accurate.
 5. **Note body** — standard Markdown links only:
 
    ```markdown

@@ -1,6 +1,6 @@
 # Concepts Index
 
-Generated: 2026-06-04
+Generated: 2026-06-08
 
 - [Agent Harness Components](agent-harness-components.md)
 - [Agent Harness Definition](agent-harness-definition.md)
@@ -33,3 +33,4 @@ Generated: 2026-06-04
 - [LangGraph State, Node, and Edge](langgraph-state-node-edge.md)
 - [LangGraph vs LangChain](langgraph-vs-langchain.md)
 - [Raw vs Wiki Layers](raw-vs-wiki-layers.md)
+- [Rubberwood Spray Painting Workflow](rubberwood-spray-painting-workflow.md)

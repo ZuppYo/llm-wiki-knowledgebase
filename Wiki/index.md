@@ -1,8 +1,8 @@
 # Wiki Index
 
-Generated: 2026-06-04
+Generated: 2026-06-08
 
-## Topics (7)
+## Topics (8)
 
 - [Agent Harness 101](Topics/agent-harness-101.md)
 - [Claude Code Paypers Production](Topics/claude-code-paypers-production.md)
@@ -11,8 +11,9 @@ Generated: 2026-06-04
 - [LangChain 101](Topics/langchain-101.md)
 - [LangGraph 101](Topics/langgraph-101.md)
 - [LLM Wiki Overview](Topics/llm-wiki-overview.md)
+- [Rubberwood Spray Painting 101](Topics/rubberwood-spray-painting-101.md)
 
-## Concepts (31)
+## Concepts (32)
 
 - [Agent Harness Components](Concepts/agent-harness-components.md)
 - [Agent Harness Definition](Concepts/agent-harness-definition.md)
@@ -45,16 +46,18 @@ Generated: 2026-06-04
 - [LangGraph State, Node, and Edge](Concepts/langgraph-state-node-edge.md)
 - [LangGraph vs LangChain](Concepts/langgraph-vs-langchain.md)
 - [Raw vs Wiki Layers](Concepts/raw-vs-wiki-layers.md)
+- [Rubberwood Spray Painting Workflow](Concepts/rubberwood-spray-painting-workflow.md)
 
 ## Projects (1)
 
 - [LLM Wiki Core Setup](Projects/llm-wiki-core-setup.md)
 
-## Logs (6)
+## Logs (7)
 
 - [Agent Harness 101 Ingest](Logs/agent-harness-101-ingest.md)
 - [Deep Agent 101 Ingest](Logs/deep-agent-101-ingest.md)
 - [Go Common Mistakes 101 Ingest](Logs/go-common-mistakes-101-ingest.md)
 - [LangChain 101 Ingest](Logs/langchain-101-ingest.md)
 - [LangGraph 101 Ingest](Logs/langgraph-101-ingest.md)
+- [Rubberwood Spray Painting Ingest](Logs/rubberwood-spray-painting-ingest.md)
 - [Tutorial 05 First Ingest](Logs/tutorial-05-first-ingest.md)

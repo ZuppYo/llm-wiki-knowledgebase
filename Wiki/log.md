@@ -20,4 +20,7 @@ Compiled 100 Go Mistakes source into topic go-common-mistakes-101 and 11 section
 ## Ingest (2026-06-04)
 
 Paypers Claude Code meetup: topic + 4 concepts from Thai transcript; Raw frontmatter normalized.
+## Rubberwood spray painting ingest (2026-06-08)
+
+Ingested Indy Woodworking Ep.19 (rubberwood plywood spray finish). Added Topics/rubberwood-spray-painting-101.md, Concepts/rubberwood-spray-painting-workflow.md, Logs/rubberwood-spray-painting-ingest.md.
 

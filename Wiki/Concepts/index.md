@@ -34,5 +34,8 @@ Generated: 2026-06-08
 - [LangGraph vs LangChain](langgraph-vs-langchain.md)
 - [Philips AUT8940 Features and Specifications](philips-aut8940-features-specs.md)
 - [Philips AUT8940 Installation and First Use](philips-aut8940-install-first-use.md)
+- [Philips AUT8990 Dual Filter Paths](philips-aut8990-dual-filter-paths.md)
+- [Philips AUT8990 Features and Specifications](philips-aut8990-features-specs.md)
+- [Philips AUT8990 Installation and First Use](philips-aut8990-install-first-use.md)
 - [Raw vs Wiki Layers](raw-vs-wiki-layers.md)
 - [Rubberwood Spray Painting Workflow](rubberwood-spray-painting-workflow.md)

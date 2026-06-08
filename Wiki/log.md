@@ -26,4 +26,7 @@ Ingested Indy Woodworking Ep.19 (rubberwood plywood spray finish). Added Topics/
 ## Philips AUT8940 RO ingest (2026-06-08)
 
 Ingested Manual/Water Filter Philips AUT8990 source (OHMSHOW review). Topic philips-aut8940-ro-water-filter-101 + specs and install concepts.
+## Ingest (2026-06-08)
+
+Philips AUT8990 T3B review + fixed AUT8940 source wikilinks
 

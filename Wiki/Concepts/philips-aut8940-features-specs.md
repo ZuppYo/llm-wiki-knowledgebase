@@ -7,7 +7,7 @@ status: seed
 created: 2026-06-08
 updated: 2026-06-08
 sources:
-  - "[[Manual/Water Filter Philips AUT8990 เครื่องกรองน้ำ RO]]"
+  - "[[Manual/Water Filter Philips AUT8940 เครื่องกรองน้ำ RO]]"
 source_count: 1
 aliases:
   - Philips AUT8940 specs
@@ -55,10 +55,10 @@ Faucet has **two hoses** (blue = RO, green = MF) and a selector.
 | Mount | Vertical or horizontal under sink |
 | Filtration claim | 0.0001 µm (5-stage deep filtration) |
 
-## AUT8990 vs AUT8940 (mentioned in review)
+## AUT8990 vs AUT8940 (OHMSHOWstudio review)
 
-| | AUT8940 | AUT8990 |
-|---|---------|---------|
+| | AUT8940 | AUT8990 (per this source) |
+|---|---------|---------------------------|
 | GPD | 400 | 800 |
 | RO flow | ~1.05 L/min | ~2 L/min |
 | Size | Similar cabinet | Similar |
@@ -67,3 +67,5 @@ Faucet has **two hoses** (blue = RO, green = MF) and a selector.
 | Extras | Touch panel on unit | Black finish; faucet/display with TDS monitoring |
 
 Review suggests AUT8940 is enough for typical **4–5 person** household daily drinking; AUT8990 for heavy continuous use.
+
+See also [Philips AUT8990 features](philips-aut8990-features-specs.md) (T3B review) — that source cites **400 GPD** for AUT8990; GPD differs between reviews.

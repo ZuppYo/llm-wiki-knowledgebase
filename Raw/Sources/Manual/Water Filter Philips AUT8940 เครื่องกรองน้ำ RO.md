@@ -1,5 +1,5 @@
 ---
-Title: "Water Filter Philips AUT8990 เครื่องกรองน้ำ RO"
+Title: "Water Filter Philips AUT8940 เครื่องกรองน้ำ RO"
 Author: "OHMSHOWstudio"
 Reference: "https://www.youtube.com/watch?v=rwacTzeuU0M"
 ContentType:

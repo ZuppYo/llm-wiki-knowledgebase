@@ -7,7 +7,7 @@ status: seed
 created: 2026-06-08
 updated: 2026-06-08
 sources:
-  - "[[Manual/Water Filter Philips AUT8990 เครื่องกรองน้ำ RO]]"
+  - "[[Manual/Water Filter Philips AUT8940 เครื่องกรองน้ำ RO]]"
 source_count: 1
 aliases:
   - Philips AUT8940 install

@@ -8,5 +8,6 @@ Generated: 2026-06-08
 - [LangChain 101 Ingest](langchain-101-ingest.md)
 - [LangGraph 101 Ingest](langgraph-101-ingest.md)
 - [Philips AUT8940 RO Water Filter Ingest](philips-aut8940-ro-ingest.md)
+- [Philips AUT8990 Dual-Mode Water Filter Ingest](philips-aut8990-ingest.md)
 - [Rubberwood Spray Painting Ingest](rubberwood-spray-painting-ingest.md)
 - [Tutorial 05 First Ingest](tutorial-05-first-ingest.md)

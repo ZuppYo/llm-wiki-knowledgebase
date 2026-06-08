@@ -9,4 +9,5 @@ Generated: 2026-06-08
 - [LangChain 101](langchain-101.md)
 - [LangGraph 101](langgraph-101.md)
 - [LLM Wiki Overview](llm-wiki-overview.md)
+- [Philips AUT8940 RO Water Filter 101](philips-aut8940-ro-water-filter-101.md)
 - [Rubberwood Spray Painting 101](rubberwood-spray-painting-101.md)

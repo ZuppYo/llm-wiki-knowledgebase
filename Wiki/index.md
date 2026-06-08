@@ -52,12 +52,19 @@ This tree lists **entry points** (usually Topics) grouped by Raw source domain
 - Raw: [LangGraph 101](../Raw/Sources/LangGraph%20101.md) · processed
 - [LangGraph 101](Topics/langgraph-101.md)
 
+### Manual
+
+#### Water Filter Philips AUT8990 เครื่องกรองน้ำ RO
+- Raw: [Water Filter Philips AUT8990 เครื่องกรองน้ำ RO](../Raw/Sources/Manual/Water%20Filter%20Philips%20AUT8990%20เครื่องกรองน้ำ%20RO.md) · processed
+- [Philips AUT8940 RO Water Filter 101](Topics/philips-aut8940-ro-water-filter-101.md)
+
 ## Appendix — by note type
 
 Sorted by `updated` (newest first).
 
-### Topics (8)
+### Topics (9)
 
+- [Philips AUT8940 RO Water Filter 101](Topics/philips-aut8940-ro-water-filter-101.md) · 2026-06-08
 - [Rubberwood Spray Painting 101](Topics/rubberwood-spray-painting-101.md) · 2026-06-08
 - [Agent Harness 101](Topics/agent-harness-101.md) · 2026-06-04
 - [Claude Code Paypers Production](Topics/claude-code-paypers-production.md) · 2026-06-04
@@ -67,8 +74,10 @@ Sorted by `updated` (newest first).
 - [LangGraph 101](Topics/langgraph-101.md) · 2026-06-04
 - [LLM Wiki Overview](Topics/llm-wiki-overview.md) · 2026-06-04
 
-### Concepts (32)
+### Concepts (34)
 
+- [Philips AUT8940 Features and Specifications](Concepts/philips-aut8940-features-specs.md) · 2026-06-08
+- [Philips AUT8940 Installation and First Use](Concepts/philips-aut8940-install-first-use.md) · 2026-06-08
 - [Rubberwood Spray Painting Workflow](Concepts/rubberwood-spray-painting-workflow.md) · 2026-06-08
 - [Agent Harness Components](Concepts/agent-harness-components.md) · 2026-06-04
 - [Agent Harness Definition](Concepts/agent-harness-definition.md) · 2026-06-04
@@ -106,8 +115,9 @@ Sorted by `updated` (newest first).
 
 - [LLM Wiki Core Setup](Projects/llm-wiki-core-setup.md) · 2026-06-04
 
-### Logs (7)
+### Logs (8)
 
+- [Philips AUT8940 RO Water Filter Ingest](Logs/philips-aut8940-ro-ingest.md) · 2026-06-08
 - [Rubberwood Spray Painting Ingest](Logs/rubberwood-spray-painting-ingest.md) · 2026-06-08
 - [Agent Harness 101 Ingest](Logs/agent-harness-101-ingest.md) · 2026-06-04
 - [Deep Agent 101 Ingest](Logs/deep-agent-101-ingest.md) · 2026-06-04

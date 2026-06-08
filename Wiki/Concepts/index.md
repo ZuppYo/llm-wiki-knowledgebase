@@ -32,5 +32,7 @@ Generated: 2026-06-08
 - [LangGraph Runtime Features](langgraph-runtime-features.md)
 - [LangGraph State, Node, and Edge](langgraph-state-node-edge.md)
 - [LangGraph vs LangChain](langgraph-vs-langchain.md)
+- [Philips AUT8940 Features and Specifications](philips-aut8940-features-specs.md)
+- [Philips AUT8940 Installation and First Use](philips-aut8940-install-first-use.md)
 - [Raw vs Wiki Layers](raw-vs-wiki-layers.md)
 - [Rubberwood Spray Painting Workflow](rubberwood-spray-painting-workflow.md)

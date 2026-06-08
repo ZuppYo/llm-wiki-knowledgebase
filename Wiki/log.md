@@ -23,4 +23,7 @@ Paypers Claude Code meetup: topic + 4 concepts from Thai transcript; Raw frontma
 ## Rubberwood spray painting ingest (2026-06-08)
 
 Ingested Indy Woodworking Ep.19 (rubberwood plywood spray finish). Added Topics/rubberwood-spray-painting-101.md, Concepts/rubberwood-spray-painting-workflow.md, Logs/rubberwood-spray-painting-ingest.md.
+## Philips AUT8940 RO ingest (2026-06-08)
+
+Ingested Manual/Water Filter Philips AUT8990 source (OHMSHOW review). Topic philips-aut8940-ro-water-filter-101 + specs and install concepts.
 

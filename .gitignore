@@ -7,3 +7,4 @@ Raw/Files/**
 !Raw/Files/.gitkeep
 !Raw/Files/**/.gitkeep
 Drafts/
+llm-wiki-knowledgebase.code-workspace

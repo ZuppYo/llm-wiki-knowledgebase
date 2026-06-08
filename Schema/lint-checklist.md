@@ -23,7 +23,8 @@ Run `python scripts/wiki_tool.py lint` and `source-lint` before every meaningful
 ## Catalog and indexes (`build`)
 
 - [ ] `Wiki/catalog.jsonl` regenerated
-- [ ] `Wiki/index.md` and per-folder `index.md` files updated
+- [ ] `Wiki/index.md` updated: **By Raw domain** tree (entry points + processed badge) and **Appendix** (flat by tag, `updated` desc)
+- [ ] Per-folder `Wiki/*/index.md` files updated
 
 ## Public audit (`audit_public.py`)
 

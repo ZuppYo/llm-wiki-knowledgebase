@@ -28,7 +28,7 @@ Read [AGENTS.md](../../AGENTS.md) and [llm-wiki-LINKS.md](../llm-wiki-LINKS.md).
 
    From `Wiki/Topics/`, same-folder: `[LangChain 101](langchain-101.md)`. Never `[[slug]]` in body.
 6. Set source `Processed: true` when coverage is complete.
-7. Run build, lint, source-scan, source-lint (see [Schema/workflow-examples.md](../../Schema/workflow-examples.md)).
+7. Run build, lint, source-scan, source-lint (see [Schema/workflow-examples.md](../../Schema/workflow-examples.md)). `build` places the new Topic under the matching **By Raw domain** branch in `Wiki/index.md`.
 8. `python scripts/wiki_tool.py log --title "Ingest" --details "..."` if the Wiki changed materially.
 
 ## Do not

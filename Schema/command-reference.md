@@ -7,7 +7,7 @@ All commands run from the vault root. Use `python scripts/wiki_tool.py` (or `pyt
 | Command | Description |
 |---------|-------------|
 | `doctor` | Non-mutating health check: folders, Python version, catalog/manifest readability, counts |
-| `build` | Generate `Wiki/catalog.jsonl`, `Wiki/index.md`, per-folder `index.md` files |
+| `build` | Generate `Wiki/catalog.jsonl`, `Wiki/index.md` (Raw-domain tree + appendix), per-folder `index.md` files |
 | `lint` | Validate compiled Wiki frontmatter, tags, sources, `source_count` |
 | `source-scan` | List Raw sources recursively; optional manifest update |
 | `source-scan --update --accept-covered` | Write `Schema/source-manifest.jsonl` |

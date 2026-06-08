@@ -31,7 +31,7 @@ python scripts/wiki_tool.py source-scan --update --accept-covered
 - **No ambiguous source wikilinks** — duplicate Raw Title or stem requires path wikilink (e.g. `"[[Knowledge/Ai/foo/bar]]"`)
 - **No duplicate Raw Title or stem** across sources (`source-lint`)
 - **No `[[wikilinks]]` in Wiki note body** — use `[Label](relative/path.md)` per [llm-wiki-LINKS.md](../llm-wiki-LINKS.md)
-- `build` regenerates `Wiki/index.md` and folder indexes as Markdown links
+- `build` regenerates `Wiki/index.md` (Raw-domain tree + appendix by tag) and folder indexes as Markdown links
 
 ## On failure
 

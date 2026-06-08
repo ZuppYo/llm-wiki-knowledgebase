@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 from datetime import date
@@ -310,26 +311,117 @@ def cmd_build(_args: argparse.Namespace) -> int:
     return 0
 
 
-def _index_list_line(record: dict, index_parent: Path) -> str:
+ENTRY_TAG_PRIORITY = ("topic", "project", "entity", "concept", "log")
+
+
+def _index_link_path(from_dir: Path, to_path: Path) -> str:
+    """Relative Markdown link path from from_dir to to_path (spaces as %20)."""
+    rel = norm_path(os.path.relpath(to_path, from_dir))
+    return rel.replace(" ", "%20")
+
+
+def _index_list_line(record: dict, index_parent: Path, *, suffix: str = "") -> str:
     """Markdown list item linking to a note relative to index_parent (clickable in Cursor/Obsidian)."""
     note = ROOT / norm_path(record["path"])
-    rel = norm_path(str(note.relative_to(index_parent)))
-    return f"- [{record['title']}]({rel})"
+    rel = _index_link_path(index_parent, note)
+    title = record["title"]
+    if suffix:
+        return f"- [{title}]({rel}){suffix}"
+    return f"- [{title}]({rel})"
+
+
+def _records_by_path(records: list[dict]) -> dict[str, dict]:
+    return {r["path"]: r for r in records}
+
+
+def _pick_entry_point(covered_wiki_paths: list[str], records_by_path: dict[str, dict]) -> dict | None:
+    covered = [records_by_path[p] for p in covered_wiki_paths if p in records_by_path]
+    if not covered:
+        return None
+    for tag in ENTRY_TAG_PRIORITY:
+        matches = [r for r in covered if r["tag"] == tag]
+        if matches:
+            return sorted(matches, key=lambda r: r["path"])[0]
+    return sorted(covered, key=lambda r: r["path"])[0]
+
+
+def _raw_folder_heading(parent_parts: tuple[str, ...]) -> str:
+    if not parent_parts:
+        return "(root)"
+    return " / ".join(parent_parts)
+
+
+def _source_processed(meta: dict, covered: list[str]) -> bool:
+    if meta.get("Processed") in (True, "true", "True"):
+        return True
+    return bool(covered)
+
+
+def _format_raw_domain_tree(
+    coverage: dict[str, list[str]],
+    records_by_path: dict[str, dict],
+) -> list[str]:
+    lines: list[str] = []
+    prev_folder: tuple[str, ...] | None = None
+    for path in raw_source_paths():
+        meta, body = read_note(path)
+        raw_rel = norm_path(str(path.relative_to(ROOT)))
+        rel_in_sources = path.relative_to(RAW_SOURCES)
+        folder_parts = rel_in_sources.parent.parts
+        if folder_parts != prev_folder:
+            lines.append(f"### {_raw_folder_heading(folder_parts)}")
+            lines.append("")
+            prev_folder = folder_parts
+        title = str(meta.get("Title") or title_from_note(path, meta, body))
+        covered = sorted(coverage.get(raw_rel, []))
+        processed = _source_processed(meta, covered)
+        badge = "processed" if processed else "unprocessed"
+        raw_href = _index_link_path(WIKI, path)
+        lines.append(f"#### {title}")
+        lines.append(f"- Raw: [{title}]({raw_href}) · {badge}")
+        entry = _pick_entry_point(covered, records_by_path)
+        if entry:
+            lines.append(_index_list_line(entry, WIKI))
+        lines.append("")
+    return lines
+
+
+def _sort_records_by_updated_desc(records: list[dict]) -> list[dict]:
+    return sorted(records, key=lambda r: r.get("updated", ""), reverse=True)
 
 
 def _write_wiki_index(records: list[dict]) -> None:
-    lines = ["# Wiki Index", "", f"Generated: {date.today().isoformat()}", ""]
+    coverage = _wiki_coverage_map()
+    records_by_path = _records_by_path(records)
+    lines = [
+        "# Wiki Index",
+        "",
+        f"Generated: {date.today().isoformat()}",
+        "",
+        "Wiki files live by note type (`Topics/`, `Concepts/`, …).",
+        "This tree lists **entry points** (usually Topics) grouped by Raw source domain",
+        "(mirrors `Raw/Sources/`). Open a Topic to reach related concepts and logs.",
+        "",
+        "## By Raw domain",
+        "",
+    ]
+    lines.extend(_format_raw_domain_tree(coverage, records_by_path))
+    lines.append("## Appendix — by note type")
+    lines.append("")
+    lines.append("Sorted by `updated` (newest first).")
+    lines.append("")
     by_tag: dict[str, list[dict]] = {}
     for r in records:
         by_tag.setdefault(r["tag"], []).append(r)
     for tag in ("topic", "concept", "entity", "project", "log"):
-        items = by_tag.get(tag, [])
+        items = _sort_records_by_updated_desc(by_tag.get(tag, []))
         if not items:
             continue
-        lines.append(f"## {tag.title()}s ({len(items)})")
+        lines.append(f"### {tag.title()}s ({len(items)})")
         lines.append("")
         for r in items:
-            lines.append(_index_list_line(r, WIKI))
+            suffix = f" · {r.get('updated', '')}"
+            lines.append(_index_list_line(r, WIKI, suffix=suffix))
         lines.append("")
     WIKI.mkdir(parents=True, exist_ok=True)
     (WIKI / "index.md").write_text("\n".join(lines), encoding="utf-8")

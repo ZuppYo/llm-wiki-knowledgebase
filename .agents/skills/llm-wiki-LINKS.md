@@ -18,7 +18,19 @@ Read with [AGENTS.md](../../AGENTS.md) and `.cursor/skills/obsidian-markdown/ref
 | `Wiki/Topics/` | `[B](b.md)` | `[C](../Concepts/c.md)` |
 | `Wiki/Concepts/` | `[C](c.md)` | `[T](../Topics/t.md)` |
 | `Wiki/Logs/` | `[L](l.md)` | `[T](../Topics/t.md)` |
-| `Wiki/index.md` | — | `[T](Topics/t.md)` |
+| `Wiki/index.md` | Wiki note | `[T](Topics/t.md)` |
+| `Wiki/index.md` | Raw source | `[Title](../Raw/Sources/Hobby/Woodwork/foo.md)` |
+
+## Wiki index layout (`build`)
+
+`Wiki/index.md` has two sections:
+
+1. **By Raw domain** — mirrors `Raw/Sources/` folders. Each source shows a Raw link, `processed` / `unprocessed`, and one **entry point** Wiki link (usually the Topic). Concepts and logs are reached from the Topic body, not listed here.
+2. **Appendix — by note type** — flat lists (Topics, Concepts, …) sorted by `updated` (newest first).
+
+Wiki files still live under `Wiki/Topics/`, `Wiki/Concepts/`, etc. The tree is a generated view only.
+
+**Agents:** use `search-catalog` for keyword lookup; use the tree to browse by domain or spot unprocessed sources during ingest.
 
 ## Nested Raw sources
 

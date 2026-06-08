@@ -9,9 +9,9 @@ Read [AGENTS.md](../../AGENTS.md) and [llm-wiki-LINKS.md](../llm-wiki-LINKS.md).
 
 ## Steps
 
-1. Read [Wiki/index.md](../../Wiki/index.md) for structure (index links are standard Markdown).
-2. `python scripts/wiki_tool.py search-catalog --query "<user topic>"`
-3. Open the best-matching compiled notes under `Wiki/`.
+1. `python scripts/wiki_tool.py search-catalog --query "<user topic>"` — primary lookup for questions.
+2. Optional: skim [Wiki/index.md](../../Wiki/index.md) **By Raw domain** to orient by source area, or **Appendix** for recent notes by type.
+3. Open the best-matching compiled notes under `Wiki/` (usually via Topic entry points).
 4. Open `Raw/Sources/` only if compiled notes lack detail or the user needs source verification.
 5. Cite Wiki path and Raw source path for source-dependent claims.
 

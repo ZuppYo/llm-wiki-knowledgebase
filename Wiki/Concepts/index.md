@@ -41,3 +41,7 @@ Generated: 2026-06-12
 - [Philips FreshPro Anti-TDS Creep](philips-freshpro-anti-tds-creep.md)
 - [Raw vs Wiki Layers](raw-vs-wiki-layers.md)
 - [Rubberwood Spray Painting Workflow](rubberwood-spray-painting-workflow.md)
+- [Win Translator Config and Security](win-translator-config-security.md)
+- [Win Translator Dev, Build, and Runtime](win-translator-dev-build.md)
+- [Win Translator Stack and Architecture](win-translator-stack-architecture.md)
+- [Win Translator UX and Behavior](win-translator-ux-behavior.md)

@@ -12,3 +12,4 @@ Generated: 2026-06-12
 - [Philips AUT8940 RO Water Filter 101](philips-aut8940-ro-water-filter-101.md)
 - [Philips AUT8990 Dual-Mode Water Filter 101](philips-aut8990-dual-mode-water-filter-101.md)
 - [Rubberwood Spray Painting 101](rubberwood-spray-painting-101.md)
+- [Win Translator 101](win-translator-101.md)

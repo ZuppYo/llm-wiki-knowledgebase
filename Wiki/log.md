@@ -32,4 +32,7 @@ Philips AUT8990 T3B review + fixed AUT8940 source wikilinks
 ## Ingest (2026-06-12)
 
 Philips AUT8990 TDS 999 troubleshooting: 2 concepts, install-first-use update, Raw ProblemPPM999 processed
+## Ingest (2026-06-12)
+
+Win Translator project knowledge: topic, project, 4 concepts, ingest log
 

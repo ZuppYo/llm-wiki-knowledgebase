@@ -66,13 +66,20 @@ This tree lists **entry points** (usually Topics) grouped by Raw source domain
 - Raw: [รีวิว Philips Water AUT8990 เครื่องกรองน้ำระบบคู่ แยกกรอง MF ล้างผัก + RO ดื่มได้ทันที พี่บูมจัดให้](../Raw/Sources/Manual/รีวิว%20Philips%20Water%20AUT8990%20เครื่องกรองน้ำระบบคู่%20แยกกรอง%20MF%20ล้างผัก%20+%20RO%20ดื่มได้ทันที%20พี่บูมจัดให้.md) · processed
 - [Philips AUT8990 Dual-Mode Water Filter 101](Topics/philips-aut8990-dual-mode-water-filter-101.md)
 
+### Project
+
+#### Win Translator
+- Raw: [Win Translator](../Raw/Sources/Project/win-translator-knowledge.md) · processed
+- [Win Translator 101](Topics/win-translator-101.md)
+
 ## Appendix — by note type
 
 Sorted by `updated` (newest first).
 
-### Topics (10)
+### Topics (11)
 
 - [Philips AUT8990 Dual-Mode Water Filter 101](Topics/philips-aut8990-dual-mode-water-filter-101.md) · 2026-06-12
+- [Win Translator 101](Topics/win-translator-101.md) · 2026-06-12
 - [Philips AUT8940 RO Water Filter 101](Topics/philips-aut8940-ro-water-filter-101.md) · 2026-06-08
 - [Rubberwood Spray Painting 101](Topics/rubberwood-spray-painting-101.md) · 2026-06-08
 - [Agent Harness 101](Topics/agent-harness-101.md) · 2026-06-04
@@ -83,11 +90,15 @@ Sorted by `updated` (newest first).
 - [LangGraph 101](Topics/langgraph-101.md) · 2026-06-04
 - [LLM Wiki Overview](Topics/llm-wiki-overview.md) · 2026-06-04
 
-### Concepts (39)
+### Concepts (43)
 
 - [Philips AUT8990 Installation and First Use](Concepts/philips-aut8990-install-first-use.md) · 2026-06-12
 - [Philips AUT8990 TDS 999 Display Troubleshooting](Concepts/philips-aut8990-tds-999-troubleshooting.md) · 2026-06-12
 - [Philips FreshPro Anti-TDS Creep](Concepts/philips-freshpro-anti-tds-creep.md) · 2026-06-12
+- [Win Translator Config and Security](Concepts/win-translator-config-security.md) · 2026-06-12
+- [Win Translator Dev, Build, and Runtime](Concepts/win-translator-dev-build.md) · 2026-06-12
+- [Win Translator Stack and Architecture](Concepts/win-translator-stack-architecture.md) · 2026-06-12
+- [Win Translator UX and Behavior](Concepts/win-translator-ux-behavior.md) · 2026-06-12
 - [Philips AUT8940 Features and Specifications](Concepts/philips-aut8940-features-specs.md) · 2026-06-08
 - [Philips AUT8940 Installation and First Use](Concepts/philips-aut8940-install-first-use.md) · 2026-06-08
 - [Philips AUT8990 Dual Filter Paths](Concepts/philips-aut8990-dual-filter-paths.md) · 2026-06-08
@@ -125,13 +136,15 @@ Sorted by `updated` (newest first).
 - [LangGraph vs LangChain](Concepts/langgraph-vs-langchain.md) · 2026-06-04
 - [Raw vs Wiki Layers](Concepts/raw-vs-wiki-layers.md) · 2026-06-04
 
-### Projects (1)
+### Projects (2)
 
+- [Win Translator](Projects/win-translator.md) · 2026-06-12
 - [LLM Wiki Core Setup](Projects/llm-wiki-core-setup.md) · 2026-06-04
 
-### Logs (10)
+### Logs (11)
 
 - [Philips AUT8990 TDS 999 Troubleshooting Ingest](Logs/philips-aut8990-tds-999-ingest.md) · 2026-06-12
+- [Win Translator Ingest](Logs/win-translator-ingest.md) · 2026-06-12
 - [Philips AUT8940 RO Water Filter Ingest](Logs/philips-aut8940-ro-ingest.md) · 2026-06-08
 - [Philips AUT8990 Dual-Mode Water Filter Ingest](Logs/philips-aut8990-ingest.md) · 2026-06-08
 - [Rubberwood Spray Painting Ingest](Logs/rubberwood-spray-painting-ingest.md) · 2026-06-08

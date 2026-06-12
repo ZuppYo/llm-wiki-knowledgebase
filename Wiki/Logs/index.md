@@ -12,3 +12,4 @@ Generated: 2026-06-12
 - [Philips AUT8990 TDS 999 Troubleshooting Ingest](philips-aut8990-tds-999-ingest.md)
 - [Rubberwood Spray Painting Ingest](rubberwood-spray-painting-ingest.md)
 - [Tutorial 05 First Ingest](tutorial-05-first-ingest.md)
+- [Win Translator Ingest](win-translator-ingest.md)

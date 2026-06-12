@@ -19,16 +19,16 @@ Compiled from [Win Translator 101](../Topics/win-translator-101.md).
 
 ## Tech stack
 
-| Layer | Choice | Rationale |
-|-------|--------|-----------|
-| Framework | **Wails 2** | Go backend + web UI; small exe; WebView2 on Windows |
-| Backend | **Go 1.23+** | Hotkey, tray, config, Gemini client |
-| Frontend | **Vanilla JS + Vite** | Simple UI without heavy framework |
-| Translation | **Gemini REST API** | `generateContent` over HTTP |
-| Default model | **`gemini-2.5-flash`** | Replaces retired `gemini-2.0-flash` |
-| Config | `%APPDATA%\WinTranslator\config.json` | API key encrypted with **Windows DPAPI** |
-| Tray | `github.com/getlantern/systray` | Open / Settings / Quit |
-| Hotkey | `golang.design/x/hotkey` | `Ctrl+Shift+T` |
+| Layer         | Choice                                | Rationale                                           |
+| ------------- | ------------------------------------- | --------------------------------------------------- |
+| Framework     | **Wails 2**                           | Go backend + web UI; small exe; WebView2 on Windows |
+| Backend       | **Go 1.23+**                          | Hotkey, tray, config, Gemini client                 |
+| Frontend      | **Vanilla JS + Vite**                 | Simple UI without heavy framework                   |
+| Translation   | **Gemini REST API**                   | `generateContent` over HTTP                         |
+| Default model | **`gemini-2.5-flash`**                | Replaces retired `gemini-2.0-flash`                 |
+| Config        | `%APPDATA%\WinTranslator\config.json` | API key encrypted with **Windows DPAPI**            |
+| Tray          | `github.com/getlantern/systray`       | Open / Settings / Quit                              |
+| Hotkey        | `golang.design/x/hotkey`              | `Ctrl+Shift+T`                                      |
 
 **Prerequisites:** Go 1.23+, Node.js 18+, Wails CLI, WebView2 Runtime (built into Windows 11).
 

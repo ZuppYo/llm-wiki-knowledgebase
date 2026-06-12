@@ -1,6 +1,6 @@
 # Concepts Index
 
-Generated: 2026-06-08
+Generated: 2026-06-12
 
 - [Agent Harness Components](agent-harness-components.md)
 - [Agent Harness Definition](agent-harness-definition.md)
@@ -37,5 +37,7 @@ Generated: 2026-06-08
 - [Philips AUT8990 Dual Filter Paths](philips-aut8990-dual-filter-paths.md)
 - [Philips AUT8990 Features and Specifications](philips-aut8990-features-specs.md)
 - [Philips AUT8990 Installation and First Use](philips-aut8990-install-first-use.md)
+- [Philips AUT8990 TDS 999 Display Troubleshooting](philips-aut8990-tds-999-troubleshooting.md)
+- [Philips FreshPro Anti-TDS Creep](philips-freshpro-anti-tds-creep.md)
 - [Raw vs Wiki Layers](raw-vs-wiki-layers.md)
 - [Rubberwood Spray Painting Workflow](rubberwood-spray-painting-workflow.md)
